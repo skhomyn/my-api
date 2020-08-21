@@ -32,7 +32,7 @@ app.get("/currencies/:currency([A-Z]{3,3})", async (req, res) => {
     try {
         const base = req.query.base && /[A-Z]{3,3}/.test(req.query.base)
             ? req.query.base
-            : null;
+            : 'EUR';
 
         const request = await fetch(`https://api.ratesapi.io/api/latest?base=${base}`);
 
