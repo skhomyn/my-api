@@ -55,5 +55,5 @@ app.get("/currencies/:currency([A-Z]{3,3})", async (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log("Server running on port 8080");
+    console.log(`Server running on port ${process.env.PORT}`);
 });
