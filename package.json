@@ -1,0 +1,26 @@
+{
+  "name": "my_api",
+  "version": "1.0.0",
+  "description": "My API",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skhomyn/my_api.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skhomyn/my_api/issues"
+  },
+  "homepage": "https://github.com/skhomyn/my_api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  }
+}
