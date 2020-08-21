@@ -30,7 +30,11 @@ app.get("/currencies", async (req, res) => {
  */
 app.get("/currencies/:currency([A-Z]{3,3})", async (req, res) => {
     try {
-        const request = await fetch("https://api.ratesapi.io/api/latest");
+        const base = req.query.base && /[A-Z]{3,3}/.test(req.query.base)
+            ? req.query.base
+            : null;
+
+        const request = await fetch(`https://api.ratesapi.io/api/latest?base=${base}`);
 
         const response = await request.json();
 
@@ -43,7 +47,9 @@ app.get("/currencies/:currency([A-Z]{3,3})", async (req, res) => {
 
         res.json({
             data: {
-                [req.params.currency]: response.rates[req.params.currency],
+                base: response.base,
+                currency: req.params.currency,
+                rate: response.rates[req.params.currency]
             },
         });
     } catch (error) {
